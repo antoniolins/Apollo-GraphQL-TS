@@ -20,7 +20,7 @@
   export const client = new Client({
     user: process.env.DB_USER,
     host: 'localhost',
-    database: 'ts_gqldb',
+    database: process.env.DB_PASS_NAME,
     password: process.env.DB_PASS,
     port: 5432,
   })
