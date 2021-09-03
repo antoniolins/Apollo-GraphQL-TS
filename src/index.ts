@@ -2,6 +2,18 @@
 import { ApolloServer } from 'apollo-server';
 import { resolvers } from './graphql/resolvers';
 import { typeDefs } from './graphql/schema';
+import { client } from '../database/db';
+
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_NAME);
+
+console.log(process.env.DB_PASS);
+
+client.connect()
+client.query('SELECT NOW()', (err, res) => {
+console.log(err, res)
+client.end()
+})
 
 const server = new ApolloServer({ typeDefs, resolvers });
 

@@ -13,16 +13,14 @@
 
   const {Client } = require('pg');
   import dotenv from 'dotenv';
-  dotenv.config ('../.env');
-  
-console.log(process.env.DB_HOST);
-console.log(process.env.DB_NAME);
+  //dotenv.config ('../.env');
+  dotenv.config();
 
 
-  const client = new Client({
-    user: 'alins',
+  export const client = new Client({
+    user: process.env.DB_USER,
     host: 'localhost',
     database: 'ts_gqldb',
-    password: 'Brito@240#',
+    password: process.env.DB_PASS,
     port: 5432,
   })
